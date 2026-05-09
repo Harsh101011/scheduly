@@ -39,7 +39,7 @@ export default function ExpertCard({ expert, onPress }) {
         {/* Avatar */}
         <View style={[styles.avatarWrapper, { borderColor: catColor }]}>
           <Image
-            source={{ uri: expert.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${expert._id}` }}
+            source={{ uri: expert.avatar || `https://api.dicebear.com/7.x/avataaars/png?seed=${expert._id}` }}
             style={styles.avatar}
             defaultSource={require('../../assets/favicon.png')}
           />

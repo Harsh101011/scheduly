@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   searchInput: { flex: 1, color: colors.textPrimary, fontSize: 15 },
-  filterRow: { paddingHorizontal: spacing.md, paddingBottom: spacing.sm, gap: 8 },
+  filterRow: { paddingHorizontal: spacing.md, paddingBottom: spacing.sm, gap: 8, alignItems: 'center' },
   filterChip: {
     paddingHorizontal: 14,
     paddingVertical: 7,
@@ -196,6 +196,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.cardBorder,
     backgroundColor: colors.card,
+    height: 34,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   filterChipActive: { backgroundColor: colors.primaryGlow, borderColor: colors.primaryLight },
   filterText: { fontSize: 13, fontWeight: '600', color: colors.textMuted },
