@@ -1,11 +1,8 @@
 import axios from 'axios';
 
-// ✅ Your machine's local IP (auto-detected: 192.168.31.155)
-// Both Android and iOS physical devices use this IP to reach your PC's backend
-// Make sure your phone and PC are on the same Wi-Fi network
-const BASE_IP = '192.168.31.155';
-export const API_BASE_URL = `http://${BASE_IP}:5000/api`;
-export const SOCKET_URL = `http://${BASE_IP}:5000`;
+// ✅ Production backend — deployed on Render
+export const API_BASE_URL = 'https://scheduly-backend-05s2.onrender.com/api';
+export const SOCKET_URL = 'https://scheduly-backend-05s2.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
