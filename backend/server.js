@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/experts', expertRoutes);
 app.use('/api/bookings', bookingRoutes);
 
-// Health check
+// Health check — Render uses this to verify the service is alive
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ status: 'OK', timestamp: new Date().toISOString(), env: process.env.NODE_ENV });
 });
 
 // 404 handler
@@ -43,6 +43,15 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+});
+
+// Graceful shutdown — required by Render and other PaaS platforms
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received. Closing server gracefully...');
+  server.close(() => {
+    console.log('Server closed.');
+    process.exit(0);
+  });
 });
 
 module.exports = { app, server };
